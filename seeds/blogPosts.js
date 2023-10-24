@@ -22,10 +22,10 @@ const postData = [
   },
 ];
 
-const seedPosts = async () => {
+const seedBlogPosts = async () => {
     await sequelize.sync({ force: true });
     await Posts.bulkCreate(postData);
     process.exit(0)
 };
 
-module.exports = seedPosts;
+module.exports = seedBlogPosts;
