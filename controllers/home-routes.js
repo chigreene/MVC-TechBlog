@@ -1,7 +1,7 @@
 
 
 const router = require('express').Router();
-const Posts = require('../models/index')
+const {Posts, Comments} = require('../models/index')
 
 router.get('/', async (req, res) => {
     try {
@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
             // include link to other table that has comments associated with each post
             include: [
                 {
-                    model: Comment,
+                    model: Comments,
                     attributes: ['author', 'comment']
                 }
             ]
@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
         console.log(post)
         res.render('homepage', {post})
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 })

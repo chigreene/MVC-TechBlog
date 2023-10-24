@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const Posts = require('../models/index')
+const {Posts} = require('../models/index')
 
 const postData = [
   {
@@ -23,7 +23,7 @@ const postData = [
 ];
 
 const seedBlogPosts = async () => {
-    await sequelize.sync({ force: true });
+    // await sequelize.sync({ force: true });
     await Posts.bulkCreate(postData);
     process.exit(0)
 };

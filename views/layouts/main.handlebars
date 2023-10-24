@@ -15,7 +15,7 @@
         <a href="/">Home</a>
         {{!-- make it so if the user is logged in then they see log out and if they are not logged in then they see the log in button --}}
         
-        {{#if loggedIn}}
+        {{!-- {{#if loggedIn}}
         {{> logOut}}
         {{#else}}
         {{> logIn}}
@@ -25,7 +25,7 @@
         {{> dashboard}}
         {{#else}}
         {{> dashboardLogIn}}
-        {{/if}}
+        {{/if}} --}}
     </nav>
     <main>
         {{{body}}}
