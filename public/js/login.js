@@ -1,7 +1,7 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
-    const username = document.querySelector('#email-login').value.trim()
+    const username = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
 
     if (username && password) {
@@ -33,7 +33,7 @@ const signupFormHandler = async (event) => {
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' }
         });
-        console.log(response)
+        
         if (response.ok) {
             document.location.replace('/');
         } else {

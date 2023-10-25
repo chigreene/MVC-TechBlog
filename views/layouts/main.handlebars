@@ -19,12 +19,16 @@
       <a href="/">Home</a>
       {{! make it so if the user is logged in then they see log out and if they are not logged in then they see the log in button }}
       {{#if loggedIn}}
-        <a href="/">Dashboard</a>
+        <a href="/dashboard">Dashboard</a>
+        
         
       {{else}}
-        <a href="/logIn">Dashboard</a>
+        <a href="/login">Dashboard</a>
+        <a href="/login">login</a>
       {{/if}}
-      
+      {{#if loggedIn}}
+      <button id="logout" class="btn-no-style">Logout</button>
+      {{/if}}
     </nav>
     <main>
       {{{body}}}
