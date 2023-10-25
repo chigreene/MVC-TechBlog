@@ -23,6 +23,10 @@ Posts.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    }
   },
   {
     sequelize,

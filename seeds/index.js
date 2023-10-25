@@ -8,7 +8,7 @@ const seedAll = async () => {
     await seedBlogPost();
 
     await seedComments();
-
+  
     process.exit(0)
 }
 

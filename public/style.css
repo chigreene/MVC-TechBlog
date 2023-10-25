@@ -1,0 +1,47 @@
+  .dark-theme {
+    background-color: #1c1c1c;
+    color: #eaeaea;
+  }
+
+  .dark-theme .card {
+    background-color: #2d2d2d;
+  }
+
+  .dark-theme .card-title,
+  .dark-theme .card-subtitle,
+  .dark-theme .card-text {
+    color: #eaeaea;
+  }
+
+  .dark-theme .card-link {
+    color: #007bff;
+  }
+
+  .dark-theme .card-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+
+  /* main layout theme */
+  
+    /* body.dark-theme {
+    background-color: #1c1c1c;
+    color: #eaeaea;
+  }
+
+  header, nav, main, footer {
+    background-color: #2d2d2d;
+  }
+
+  a {
+    color: #eaeaea;
+  }
+
+  a:hover {
+    color: #007bff;
+    text-decoration: underline;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #eaeaea;
+  } */

@@ -15,9 +15,7 @@ const commentData = [
 ]
 
 const seedComments = async () => {
-    // await sequelize.sync({ force: true });
     await Comments.bulkCreate(commentData);
-    process.exit(0);
 }
 
 module.exports = seedComments;
