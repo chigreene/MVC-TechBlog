@@ -16,7 +16,10 @@ router.get('/', async (req, res) => {
         })
         const post = postData.map(post => post.get({ plain: true }))
         
-        res.render('homepage', {post,})
+        res.render('homepage', {
+            post,
+            loggedIn: req.session.loggedIn
+        })
     } catch (err) {
         console.log(err)
         res.status(500).json(err);
@@ -28,7 +31,9 @@ router.get('/login', (req, res) => {
         res.redirect('/')
     }
     
-    res.render('login')
+    res.render('login', {
+        loggedIn: req.session.loggedIn
+    })
 })
 
 module.exports = router;
