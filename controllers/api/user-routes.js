@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
             username: req.body.username,
             password: req.body.password,
         });
-
+        console.log(dbUserData)
         req.session.save(() => {
             req.session.loggedIn = true;
 
@@ -19,6 +19,12 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
     }
 })
+
+// router.post('/login', async (req, res) => {
+//     try {
+//         const dbUserData = 
+//     }
+// })
 
 
 
