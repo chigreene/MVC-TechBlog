@@ -1,15 +1,17 @@
-<div class="dark-theme container-lg mx-auto row justify-content-center">
-  {{#each post as |post|}}
-  <div class="card mb-4" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{ post.title }}</h5>
-      <h6 class="card-subtitle mb-2 ">{{ post.userName }}</h6>
-      <p class="card-text">{{ post.content }}</p>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Input Form</h2>
+        <form class="update-form" action="your-server-endpoint" method="post">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{post.title}}" required>
+            </div>
+            <div class="form-group">
+                <label for="body">Body:</label>
+                <textarea class="form-control" id="body" name="body" rows="5" required>{{post.content}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-    <div class="card-footer ">
-      {{ format_time post.createdAt }}
-      {{ format_date post.createdAt }}
-    </div>
-  </div>
-  {{/each}}
-</div>
+
+<script src="/js/update.js"></script>

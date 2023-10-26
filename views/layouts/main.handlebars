@@ -15,17 +15,19 @@
     <header>
       <h1>WELCOME TO THE BLOG</h1>
     </header>
-    <nav>
-      <a href="/">Home</a>
-      {{! make it so if the user is logged in then they see log out and if they are not logged in then they see the log in button }}
-      {{#if loggedIn}}
-        <a href="/dashboard">Dashboard</a>
-        <button id="logout" >Logout</button>
-      {{else}}
-        <a href="/login">Dashboard</a>
-        <a href="/login">Log In</a>
-      {{/if}}
-
+    <nav class="d-flex justify-content-between">
+      <div>
+        <a href="/">Home</a>
+        {{#if loggedIn}}
+            <a href="/dashboard">Dashboard</a>
+        {{else}}
+            <a href="/login">Dashboard</a>
+            <a href="/login">Log In</a>
+        {{/if}}
+    </div>
+    {{#if loggedIn}}
+        <button class="btn btn-primary" id="logout">Logout</button>
+    {{/if}}
     </nav>
     
     <main>

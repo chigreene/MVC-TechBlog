@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const { Comments, Posts } = require("../../models");
-
+const withAuth = require("../../utils/auth");
 // import middleware
 
 // get post and comment by id
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const postData = await Posts.findByPk(req.params.id, {
       include: [
@@ -27,11 +27,10 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-
 // post comment to specific post by id
-router.post("/:id/comment", async (req, res) => {
+router.post("/:id/comment", withAuth, async (req, res) => {
   try {
-      const userName = req.session.userName;
+    const userName = req.session.userName;
 
     const commentData = await Comments.create({
       title: req.body.title,
@@ -47,44 +46,63 @@ router.post("/:id/comment", async (req, res) => {
   }
 });
 
-
 // post a comment
-router.post('/', async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     const userName = req.session.userName;
 
     const postData = await Posts.create({
       title: req.body.title,
       content: req.body.content,
-      userName: userName
-    })
+      userName: userName,
+    });
     res.status(200).json(postData);
-    console.log(postData)
+    console.log(postData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
-})
+});
+
+router.put("/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Posts.update(req.body,
+      {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!postData) {
+      res.status(404).json({ message: "No project found for this id!" });
+      return;
+    }
+
+    res.status(200).json(postData);
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // delete
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const postData = await Posts.destroy({
       where: {
-        id: req.params.id
-      }
-    })
+        id: req.params.id,
+      },
+    });
 
     if (!postData) {
       res.status(404).json({ message: "No project found for this id!" });
       return;
     }
 
-    res.status(200).json(postData)
-
+    res.status(200).json(postData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
-})
+});
 module.exports = router;

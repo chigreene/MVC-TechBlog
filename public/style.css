@@ -2,6 +2,13 @@
   display: none;
 }
 
+.comment-indented {
+  padding-left: 50px;
+}
+.comments-header {
+  color: #eaeaea;
+}
+
 .dark-theme {
     background-color: #1c1c1c;
     color: #eaeaea;

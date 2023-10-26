@@ -1,29 +1,37 @@
-<div class="dark-theme container-lg mx-auto row justify-content-center">
+<div class="dark-theme container-lg mx-auto my-5 row justify-content-center">
   <div class="card mb-4" >
+    <div class="card-header">
+      <h2 class="card-title ">{{ post.title }}</h2>
+      <h5 class="card-subtitle mb-2 ">Posted By: {{ post.userName }}</h5>
+      <div class=""> Original Post At:
+      {{ format_time post.createdAt }}
+      {{ format_date post.createdAt }}
+    </div>
+    </div>
     <div class="card-body">
-      <h5 class="card-title">{{ post.title }}</h5>
-      <h6 class="card-subtitle mb-2 ">{{ post.userName }}</h6>
-      <p class="card-text">{{ post.content }}</p>
+      
+      
+      <p class="card-text fs-5">{{ post.content }}</p>
       {{!-- add logic so if they are logged in then they will be able to reply --}}
-      <button type="submit" class="btn btn-primary" id="showPartialButton">Submit Comment</button>
+      
       
     </div>
-    <div class="scrollable-container">
+    <div class="card-footer">
+    <h3 class="comments-header">Comments</h3>
+    <div class="scrollable-container ">
       {{#each post.comments as |comment|}}
-      <div class="card-text mb-2">
+      <div class="card-text mb-2 comment-indented">
         <strong>{{ comment.userName }}</strong>
         <p>{{ comment.comment }}</p>
-        <p>
+        <p> Comment Post At:
           {{ format_time comment.createdAt }}
           {{ format_date comment.createdAt }}
         </p>
       </div>
       {{/each}}
     </div>
-    <div class="card-footer">
-      {{ format_time post.createdAt }}
-      {{ format_date post.createdAt }}
-    </div>
+    <button type="submit" class="btn btn-primary" id="showPartialButton">Submit Comment</button>
+  </div>
   </div>
 </div>
 
