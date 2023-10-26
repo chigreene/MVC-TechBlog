@@ -6,35 +6,7 @@ const postData = [
     title: "My first blog post",
     userName: "Chris G",
     content:
-      "asdfasdf asdfasld ;kfjas ld;kf jla;sd kjf;lask djf; laks jdflka sjdfl;ka js dl;fkjasl; dj fl;a skjdfl;ask j d f;lk jasdfa; slkdjf",
-    createdAt: new Date(),
-  },
-  {
-    title: "My first blog post",
-    userName: "Chris G",
-    content:
-      "asdfasdf asdfasld ;kfjas ld;kf jla;sd kjf;lask djf; laks jdflka sjdfl;ka js dl;fkjasl; dj fl;a skjdfl;ask j d f;lk jasdfa; slkdjf",
-    createdAt: new Date(),
-  },
-  {
-    title: "My first blog post",
-    userName: "Chris G",
-    content:
-      "asdfasdf asdfasld ;kfjas ld;kf jla;sd kjf;lask djf; laks jdflka sjdfl;ka js dl;fkjasl; dj fl;a skjdfl;ask j d f;lk jasdfa; slkdjf",
-    createdAt: new Date(),
-  },
-  {
-    title: "My first blog post",
-    userName: "Chris G",
-    content:
-      "asdfasdf asdfasld ;kfjas ld;kf jla;sd kjf;lask djf; laks jdflka sjdfl;ka js dl;fkjasl; dj fl;a skjdfl;ask j d f;lk jasdfa; slkdjf",
-    createdAt: new Date(),
-  },
-  {
-    title: "My first blog post",
-    userName: "Chris G",
-    content:
-      "asdfasdf asdfasld ;kfjas ld;kf jla;sd kjf;lask djf; laks jdflka sjdfl;ka js dl;fkjasl; dj fl;a skjdfl;ask j d f;lk jasdfa; slkdjf",
+      "Welcome to my blog. Here were are going to discuss all thing Web Development.",
     createdAt: new Date(),
   },
   

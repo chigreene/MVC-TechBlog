@@ -1,7 +1,7 @@
 document
   .getElementById("showPartialButton")
-    .addEventListener("click", function () {
-        console.log('hello')
+  .addEventListener("click", function (event) {
+    event.preventDefault();
     
     const partialContainer = document.getElementById("partialContainer");
 

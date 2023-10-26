@@ -1,0 +1,12 @@
+<div class="scrollable-container">
+      {{#each post.comments as |comment|}}
+      <div class="card-text mb-2">
+        <strong>{{ comment.userName }}</strong>
+        <p>{{ comment.comment }}</p>
+        <p>
+          {{ format_time comment.createdAt }}
+          {{ format_date comment.createdAt }}
+        </p>
+      </div>
+      {{/each}}
+</div>

@@ -3,6 +3,7 @@ const { Comments, Posts } = require("../../models");
 
 // import middleware
 
+// get post and comment by id
 router.get("/:id", async (req, res) => {
   try {
     const postData = await Posts.findByPk(req.params.id, {
@@ -26,6 +27,8 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+
+// post comment to specific post by id
 router.post("/:id/comment", async (req, res) => {
   try {
       const userName = req.session.userName;
@@ -38,12 +41,50 @@ router.post("/:id/comment", async (req, res) => {
     });
     // do i need req.session.save() here
     res.status(200).json(commentData);
-      console.log(commentData);
-      console.log("sesion ID", req.session.userName);
   } catch (err) {
     console.log(err);
     res.status(200).json(err);
   }
 });
 
+
+// post a comment
+router.post('/', async (req, res) => {
+  try {
+    const userName = req.session.userName;
+
+    const postData = await Posts.create({
+      title: req.body.title,
+      content: req.body.content,
+      userName: userName
+    })
+    res.status(200).json(postData);
+    console.log(postData)
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+// delete
+router.delete('/:id', async (req, res) => {
+  try {
+    const postData = await Posts.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+
+    if (!postData) {
+      res.status(404).json({ message: "No project found for this id!" });
+      return;
+    }
+
+    res.status(200).json(postData)
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
 module.exports = router;
