@@ -9,7 +9,7 @@ const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers')
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 const sess = {
   secret: "Super secret secret",
@@ -26,7 +26,12 @@ const sess = {
 
 app.use(session(sess))
 
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({
+  helpers: {
+    format_time: helpers.format_time,
+    format_date: helpers.format_date,
+  },
+});
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

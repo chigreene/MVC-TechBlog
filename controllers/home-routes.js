@@ -5,15 +5,7 @@ const {Posts, Comments} = require('../models/index')
 
 router.get('/', async (req, res) => {
     try {
-        const postData = await Posts.findAll({
-            // include link to other table that has comments associated with each post
-            include: [
-                {
-                    model: Comments,
-                    attributes: ['author', 'comment']
-                }
-            ]
-        })
+        const postData = await Posts.findAll();
         const post = postData.map(post => post.get({ plain: true }))
         
         res.render('homepage', {
@@ -26,6 +18,34 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/post/:id', async (req, res) => {
+    try {
+        const postData = await Posts.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Comments,
+                    attributes: ['userName', 'comment', 'createdAt']
+                }
+            ]
+        });
+        
+        const post = postData.get({ plain: true });
+
+        res.render('singlePost', {
+            post,
+            loggedIn: req.session.loggedIn,
+        })
+
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    } 
+})
+
+
+
+router.get('/comments')
+
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/')
@@ -35,5 +55,6 @@ router.get('/login', (req, res) => {
         loggedIn: req.session.loggedIn
     })
 })
+
 
 module.exports = router;

@@ -3,44 +3,24 @@ const {Comments} = require('../models/index')
 
 const commentData = [
   {
-    author: "Dave G",
+    userName: "Dave G",
     comment: "You are awesome!",
     post_id: 1,
   },
   {
-    author: "Harely K",
+    userName: "Harely K",
     comment: "You Rock!",
     post_id: 1,
   },
   {
-    author: "Harely K",
+    userName: "Harely K",
     comment: "You Rock!",
     post_id: 1,
   },
   {
-    author: "Harely K",
+    userName: "Harely K",
     comment: "You Rock!",
     post_id: 2,
-  },
-  {
-    author: "Harely K",
-    comment: "You Rock!",
-    post_id: 2,
-  },
-  {
-    author: "Harely K",
-    comment: "You Rock!",
-    post_id: 3,
-  },
-  {
-    author: "Harely K",
-    comment: "You Rock!",
-    post_id: 2,
-  },
-  {
-    author: "Harely K",
-    comment: "You Rock!",
-    post_id: 4,
   },
 ];
 

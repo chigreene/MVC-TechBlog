@@ -15,7 +15,7 @@ Posts.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    author: {
+    userName: {
       type: DataTypes.STRING,
       allowNull: false,
     },

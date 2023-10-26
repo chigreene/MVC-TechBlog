@@ -20,6 +20,8 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.post('/comment')
+
 router.post('/login', async (req, res) => {
     try {
         const dbUserData = await User.findOne({

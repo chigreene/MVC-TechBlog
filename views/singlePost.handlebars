@@ -1,13 +1,12 @@
 <div class="dark-theme container-lg mx-auto row justify-content-center">
-  {{#each post as |post|}}
   <div class="card mb-4" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">{{ post.title }}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{ post.userName }}</h6>
+      <h6 class="card-subtitle mb-2 ">{{ post.userName }}</h6>
       <p class="card-text">{{ post.content }}</p>
       {{!-- add logic so if they are logged in then they will be able to reply --}}
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+      <button type="submit" class="btn btn-primary" id="showPartialButton">Submit Comment</button>
+      
     </div>
     <div class="scrollable-container">
       {{#each post.comments as |comment|}}
@@ -17,9 +16,15 @@
       </div>
       {{/each}}
     </div>
-    <div class="card-footer text-muted">
-      {{ post.createdAt }}
+    <div class="card-footer">
+      {{ format_time post.createdAt }}
+      {{ format_date post.createdAt }}
     </div>
   </div>
-  {{/each}}
 </div>
+
+<div id="partialContainer" class="hidden">
+    {{> comment}}
+</div>
+
+<script src="/js/showComment.js"></script>

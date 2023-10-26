@@ -10,7 +10,7 @@ Comments.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  author: {
+  userName: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -18,6 +18,10 @@ Comments.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
+  createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    },
   post_id: {
     type: DataTypes.INTEGER,
     allowNull: false,

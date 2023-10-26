@@ -1,4 +1,8 @@
-  .dark-theme {
+#partialContainer { 
+  display: none;
+}
+
+.dark-theme {
     background-color: #1c1c1c;
     color: #eaeaea;
   }
@@ -20,6 +24,11 @@
   .dark-theme .card-link:hover {
     color: #0056b3;
     text-decoration: underline;
+  }
+
+  .dark-theme .card-header,
+  .dark-theme .card-footer  {
+    color: #eaeaea;
   }
 
   .scrollable-container {
