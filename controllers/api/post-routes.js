@@ -33,7 +33,7 @@ router.post("/:id/comment", async (req, res) => {
     const commentData = await Comments.create({
       title: req.body.title,
       comment: req.body.comment,
-      user_name: userName,
+      userName: userName,
       post_id: req.params.id,
     });
     // do i need req.session.save() here
