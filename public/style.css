@@ -5,7 +5,8 @@
 .comment-indented {
   padding-left: 50px;
 }
-.comments-header {
+.comments-header,
+.white-text {
   color: #eaeaea;
 }
 

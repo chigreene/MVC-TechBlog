@@ -60,7 +60,7 @@ router.get('/dashboard/update/:id', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/')
+       return res.redirect('/')
     }
     
     res.render('login', {

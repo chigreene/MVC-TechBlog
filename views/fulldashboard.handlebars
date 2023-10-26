@@ -11,36 +11,36 @@
 <div class="dark-theme container-lg mx-auto row justify-content-center">
   {{#each post as |post|}}
   <div class="card mb-4">
-    <div class="card-body">
+    <div class="card-header">
       <h5 class="card-title">{{ post.title }}</h5>
-      <h6 class="card-subtitle mb-2 ">{{ post.userName }}</h6>
+      <h6 class="card-subtitle mb-2 "> Posted By: {{ post.userName }}</h6>
+      <div class="white-text"> Original Post At:
+        {{ format_time post.createdAt }}
+        {{ format_date post.createdAt }}
+      </div>
+    </div>
+    <div class="card-body">
       <p class="card-text">{{ post.content }}</p>
       
-      <a href="/dashboard/update/{{post.id}}" class="card-link">Update Comment</a>
-
-
-      {{!-- <a href="/api/post/delete/{{post.id}}" class="card-link">Delete Comment</a> --}}
-
-      
-      
+      <a href="/dashboard/update/{{post.id}}" class="card-link">Update Post</a>
     </div>
-    <div>
-      <button type="submit" class="btn btn-primary deleteButton" id="" data-id="{{post.id}}">Delete Comment</button>
-    </div>
-    <div class="scrollable-container">
-      {{#each post.comments as |comment|}}
-      <div class="card-text mb-2">
-        <strong>{{ comment.userName }}</strong>
-        <p>{{ comment.comment }}</p>
+    
+    <div class="card-footer">
+      <div class="scrollable-container">
+        {{#each post.comments as |comment|}}
+        <div class="card-text mb-2">
+          <strong>{{ comment.userName }}</strong>
+          <p>{{ comment.comment }}</p>
+        </div>
+        {{/each}}
       </div>
-      {{/each}}
-    </div>
-    <div class="card-footer ">
-      {{ format_time post.createdAt }}
-      {{ format_date post.createdAt }}
+      <div>
+        <button type="submit" class="btn btn-primary deleteButton" id="" data-id="{{post.id}}">Delete Post</button>
+      </div>
     </div>
   </div>
   {{/each}}
+  
 </div>
 
 <script src="/js/showComment.js"></script>
