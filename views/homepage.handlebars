@@ -1,14 +1,17 @@
 <div class="dark-theme container-lg mx-auto row justify-content-center">
   {{#each post as |post|}}
-  {{!-- <a href="/post/{{ post.id }}"> --}}
+    {{!-- <a href="/post/{{ post.id }}"> --}}
     <div class="card">
-      <div class="card-header"> {{ format_date post.createdAt }} - {{ format_time post.createdAt }}</div>
+      <div class="card-header">
+        {{format_date post.createdAt}}
+        -
+        {{format_time post.createdAt}}</div>
       <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
-        {{!-- uses handlebars to link to the route for the post selected --}}
-        <a href="/post/{{post.id}}" class="btn btn-primary">View Full Post</a>
+        <h5 class="card-title">{{post.title}}</h5>
+        {{! uses handlebars to link to the route for the post selected }}
+        <a href="/api/post/{{post.id}}" class="btn btn-primary">View Full Post</a>
       </div>
     </div>
-  {{!-- </a> --}}
+    {{! </a> }}
   {{/each}}
 </div>

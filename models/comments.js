@@ -12,11 +12,15 @@ Comments.init({
   },
   userName: {
     type: DataTypes.STRING,
-    allowNull: false,
+    // allowNull: false,
+  },
+  title: {
+    type: DataTypes.STRING,
+
   },
   comment: {
     type: DataTypes.STRING,
-    allowNull: false,
+    // allowNull: false,
   },
   createdAt: {
       type: DataTypes.DATE,

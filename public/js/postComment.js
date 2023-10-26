@@ -2,13 +2,18 @@ async function newFormHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('#title').value;
-    const body = document.querySelector('#body').value;
+    const comment = document.querySelector('#body').value;
+    const postId = window.location.pathname.split("/")[window.location.pathname.split('/').length -1];
 
-    const response = await fetch('/api/comment', {
+    console.log(title),
+    console.log(comment)
+
+
+    const response = await fetch(`/api/post/${postId}/comment`, {
         method: 'POST',
         body: JSON.stringify({
             title,
-            body,
+            comment,
         }),
         headers: {
             'Content-Type': 'application/json',
@@ -23,4 +28,5 @@ async function newFormHandler(event) {
 }
 
 document
-    .querySelector()
+    .querySelector('.comment-form')
+    .addEventListener('submit', newFormHandler)
