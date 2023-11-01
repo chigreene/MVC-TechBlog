@@ -33,7 +33,6 @@ router.post("/:id/comment", withAuth, async (req, res) => {
     const userName = req.session.userName;
 
     const commentData = await Comments.create({
-      title: req.body.title,
       comment: req.body.comment,
       userName: userName,
       post_id: req.params.id,

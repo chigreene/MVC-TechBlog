@@ -1,7 +1,6 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector("#title").value;
   const comment = document.querySelector("#body").value;
 
   const postId =
@@ -12,7 +11,6 @@ async function newFormHandler(event) {
   const response = await fetch(`/api/post/${postId}/comment`, {
     method: "POST",
     body: JSON.stringify({
-      title,
       comment,
     }),
     headers: {
